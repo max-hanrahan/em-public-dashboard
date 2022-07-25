@@ -13,5 +13,4 @@ args = parser.parse_args()
 
 with open(args.mapping_notebook) as f:
     nb = nbformat.read(f, as_version=4)
-
-nbclient.execute(new_nb)
+    nbclient.execute(nb)

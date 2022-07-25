@@ -32,7 +32,7 @@ def get_participant_uuids(program):
         Note that the "program" parameter is currently a NOP but will be enabled
         once we have other programs start
     """
-    participant_uuid_obj = list(edb.get_profile_db().find({"install_group": "participant"}, {"user_id": 1, "_id": 0}))
+    participant_uuid_obj = list(edb.get_profile_db().find({}))
     participant_uuid_str = [u["user_id"] for u in participant_uuid_obj]
     disp.display(participant_uuid_str)
     return participant_uuid_str
@@ -63,12 +63,12 @@ def expand_userinputs(labeled_ct):
     disp.display(label_only.head())
     expanded_ct = pd.concat([labeled_ct, label_only], axis=1)
     assert len(expanded_ct) == len(labeled_ct), \
-        ("Mismatch after expanding labels, expanded_ct.rows = %s != labeled_ct.rows" %
+        ("Mismatch after expanding labels, expanded_ct.rows = %s != labeled_ct.rows %s" %
             (len(expanded_ct), len(labeled_ct)))
     print("After expanding, columns went from %s -> %s" %
         (len(labeled_ct.columns), len(expanded_ct.columns)))
     assert len(expanded_ct.columns) == len(labeled_ct.columns) + 3, \
-        ("Mismatch after expanding labels, expanded_ct.columns = %s != labeled_ct.rows" %
+        ("Mismatch after expanding labels, expanded_ct.columns = %s != labeled_ct.rows %s" %
             (len(expanded_ct.columns), len(labeled_ct.columns)))
     disp.display(expanded_ct.head())
     return expanded_ct

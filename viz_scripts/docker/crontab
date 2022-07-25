@@ -1,6 +1,8 @@
+0 7 * * * python bin/update_mappings.py mapping_dictionaries.ipynb >> /var/log/intake.stdinout 2>&1
 0 8 * * * python bin/generate_plots.py mode_purpose_share.ipynb prepilot >> /var/log/intake.stdinout 2>&1
-0 8 * * * python bin/generate_plots.py ebike_specific_metrics prepilot >> /var/log/intake.stdinout 2>&1
+0 8 * * * python bin/generate_plots.py ebike_specific_metrics.ipynb prepilot >> /var/log/intake.stdinout 2>&1
 0 8 * * * python bin/generate_plots.py energy_calculations.ipynb prepilot >> /var/log/intake.stdinout 2>&1
 0 8 * * * python bin/generate_plots.py generic_metrics_ebike_project.ipynb prepilot >> /var/log/intake.stdinout 2>&1
+0 8 * * * python bin/generate_plots.py timeseries_analysis.ipynb prepilot >> /var/log/intake.stdinout 2>&1
 # For testing only
 # */5 * * * * python bin/generate_plots.py mode_purpose_share.ipynb prepilot >> /var/log/intake.stdinout 2>&1
